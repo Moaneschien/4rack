@@ -1,0 +1,23 @@
+{
+  "slug": "Moaneschien",
+  "name": "Moaneschien",
+  "brand": "Moaneschien",
+  "version": "1.6.1",
+  "license": "GPL 3",
+  "author": "Ingo",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "https://github.com/moaneschien/4rack",
+  "manualUrl": "https://github.com/moaneschien/4rack",
+  "sourceUrl": "https://github.com/moaneschien/4rack",
+  "donateUrl": "",
+  "changelogUrl": "https://github.com/moaneschien",
+  "modules": [
+    {
+      "slug": "Ramp",
+      "name": "Ramp",
+      "description": "",
+      "tags": []
+    }
+  ]
+}
