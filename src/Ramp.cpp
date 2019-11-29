@@ -42,17 +42,13 @@ struct Ramp : Module {
 	*/
 	inline float interpolate(float gc, float ge, float ts, float te, float im) {
 	  float v;
-	  if (im == 10.f) {(gc == ge) ? v = te : v = ts;}  // step
-	  else {
-	    float x = gc / ge;
-	    if (im != 0) { 
-	      (im == 1.f) ? v = ts + (te - ts) * x : v = ts + (te - ts) * pow(x, im);
-	    }
-	    else {                             				// cosine
-	      float f = (1 - cos(x * M_PI)) * 0.5;
+		if (im == 0.f) {                             				// cosine
+	      float f = (1 - cos((gc / ge) * M_PI)) * 0.5;
 	      v = ts * (1 - f) + te * f;
-	    }  
 	  }
+	  else if (im == 1.f) {v = ts + (te - ts) * (gc / ge);}
+	  else if (im == 10.f) {(gc == ge) ? v = te : v = ts;}  // step
+	  else {v = ts + (te - ts) * pow((gc / ge), im);}
 	  return v;
 	}
 
@@ -91,6 +87,12 @@ struct Ramp : Module {
 					|| outputs[VOUTB_OUTPUT + i].isConnected()
 				) == true
 			) {
+				if (startTrigger[i].process(inputs[START_INPUT + i].getVoltage()) == true) {
+					gc[i] = 0;
+					running[i] = true;
+					finished[i] = false;
+					stopped[i] = false;
+				}
 				if (running[i] == true) {
 					gc[i] += args.sampleTime;				
 					if (gc[i] < params[TIME_PARAM + i].getValue()) {
@@ -115,7 +117,7 @@ struct Ramp : Module {
 					lights[START_LIGHT + i].setBrightness(10.f);
 				}
 				else if (finished[i] == true) {
-					endPulse[i] = endPulseGen[i].process(1/args.sampleTime);
+					endPulse[i] = endPulseGen[i].process(args.sampleTime);
 					outputs[END_OUTPUT + i].setVoltage(endPulse[i] ? 10.f : 0.f);
 					float current_voltage = params[VTO_PARAM + i].getValue();
 					outputs[VOUTU_OUTPUT + i].setVoltage(current_voltage);
@@ -125,17 +127,12 @@ struct Ramp : Module {
 					lights[START_LIGHT + i].setBrightness(10.f);
 					lights[END_LIGHT + i].setBrightness(10.f);
 				}
-				if (startTrigger[i].process(inputs[START_INPUT + i].getVoltage()) == true) {
-					gc[i] = 0;
-					running[i] = true;
-					finished[i] = false;
-					stopped[i] = false;
-				}
 				if (inputs[STOP_INPUT + i].isConnected() && stopTrigger[i].process(inputs[STOP_INPUT + i].getVoltage()) == true) {
 					gc[i] = 0;
 					running[i] = false;
 					finished[i] = false;
 					stopped[i] = true;
+					outputs[END_OUTPUT + i].setVoltage(0.f);
 					outputs[VOUTU_OUTPUT + i].setVoltage(0.f);
 					outputs[VOUTB_OUTPUT + i].setVoltage(-5.f);
 					lights[END_LIGHT + i].setBrightness(0.f);
@@ -226,7 +223,6 @@ struct RampWidget : ModuleWidget {
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(66.0,  94.5)), module, Ramp::INTERP_PARAM + 5));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(66.0, 106.5)), module, Ramp::INTERP_PARAM + 6));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(66.0, 118.5)), module, Ramp::INTERP_PARAM + 7));
-
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 	34.5)), module, Ramp::END_OUTPUT + 0));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 	46.5)), module, Ramp::END_OUTPUT + 1));
