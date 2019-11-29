@@ -1,7 +1,7 @@
 #include "plugin.hpp"
 #include "rampcomponent.hpp"
 #include <cmath>
-
+using simd::float_4;
 
 struct Ramp : Module {
 	enum ParamIds {
@@ -44,12 +44,12 @@ struct Ramp : Module {
 	inline float interpolate(float gc, float ge, float ts, float te, float im) {
 	  float v;
 		if (im == 0.f) {                             				// cosine
-	      float f = (1 - cos((gc / ge) * M_PI)) * 0.5;
+	      float f = (1 - simd::cos((gc / ge) * M_PI)) * 0.5;
 	      v = ts * (1 - f) + te * f;
 	  }
 	  else if (im == 1.f) {v = ts + (te - ts) * (gc / ge);}
 	  else if (im == 10.f) {(gc == ge) ? v = te : v = ts;}  // step
-	  else {v = ts + (te - ts) * pow((gc / ge), im);}
+	  else {v = ts + (te - ts) * simd::pow((gc / ge), im);}
 	  return v;
 	}
 
