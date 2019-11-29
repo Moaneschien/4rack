@@ -135,14 +135,14 @@ struct Ramp : Module {
 					stopped[i] = true;
 					outputs[END_OUTPUT + i].setVoltage(0.f);
 					outputs[VOUTU_OUTPUT + i].setVoltage(0.f);
-					outputs[VOUTB_OUTPUT + i].setVoltage(-5.f);
+					outputs[VOUTB_OUTPUT + i].setVoltage(0.f);
 					lights[END_LIGHT + i].setBrightness(0.f);
 					lights[START_LIGHT + i].setBrightness(0.f);
 				}
 			}
 			else {
 				outputs[VOUTU_OUTPUT + i].setVoltage(0.f);
-				outputs[VOUTB_OUTPUT + i].setVoltage(-5.f);
+				outputs[VOUTB_OUTPUT + i].setVoltage(0.f);
 				lights[END_LIGHT + i].setBrightness(0.f);
 				lights[START_LIGHT + i].setBrightness(0.f);
 				gc[i] = 0;
