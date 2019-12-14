@@ -1,3 +1,5 @@
+# Moaneschien Modules 4 Rack
+
 All still very Alpha and in separate directories. Once it stabilised a bit more It'll be merged into one.
 
 # Bezosc 
@@ -29,6 +31,7 @@ All still very Alpha and in separate directories. Once it stabilised a bit more 
 
  The scope is not implemented yet and may never materialize. Use a scope to add x&y to visualise the shape of the spline.
 
+![Bezosc](https://Moaneschien.github.io/modules/images/bezosc.jpg)
 
 # Rndbezosc
 
@@ -50,6 +53,7 @@ All still very Alpha and in separate directories. Once it stabilised a bit more 
 
  Waveform (V).
 
+![rndbezosc](https://Moaneschien.github.io/modules/images/rndbezosc.png)
 
 # Ramp 
 
@@ -75,7 +79,10 @@ All still very Alpha and in separate directories. Once it stabilised a bit more 
 
  Vuni out: 0 - 10V output.
 
+![Ramp](https://Moaneschien.github.io/modules/images/ramp.png)
+
 ## Credits
 
- Andrew Belt for VCV RACK, © 2019, GNU General Public License v3.0 
+ Andrew Belt for VCV RACK, © 2019, GNU General Public License v3.0
+  
  Matt McInerney for Orbitron, © 2009, SIL Open Font License, Version 1.1.
