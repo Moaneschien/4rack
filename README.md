@@ -1,7 +1,10 @@
 # Ramp (very alpha)
+
  Ramp for VCV Rack. Ramps voltage up or down using cosine, linear or exponential interpolation.
 
- Start: Requires an trigger as input. starts the ramp from Vfrom to Vto. A start while running restarts the ramp. When the end is reached voltage stays at Vto and an end puls is emitted. 
+## Parameters
+
+ Start: Requires a trigger as input. Starts the ramp from Vfrom to Vto. A start while running restarts the ramp. When the end is reached voltage stays at Vto and an end puls is emitted. 
 
  Stop: Requires an trigger as input. Stops/resets the proces, voltage drops to 0 or -5.
 
@@ -19,3 +22,7 @@
 
  Vuni out: 0 - 10V output.
 
+## Credits
+
+ Andrew Belt for VCV RACK, © 2019, GNU General Public License v3.0 
+ Matt McInerney for Orbitron, © 2009, SIL Open Font License, Version 1.1.
