@@ -1,4 +1,57 @@
-# Ramp (very alpha)
+All still very Alpha and in separate directories. Once it stabilised a bit more It'll be merged into one.
+
+# Bezosc 
+
+ A Bezier oscillator.
+
+ Manipulate 4 knots and 8 handles of a closed Bezier spline to create waveforms. Each x and y-paramter of the knots and handles can be modulated.
+
+## Parameters
+
+ x & y of the four knots and x and y of the 8 handles.
+ Frequency
+
+## Inputs
+
+ Frequecy setting or modulation (V)
+
+## Outputs
+
+ X and y of the resulting shape at t.
+ Angle of the direction vector <x,y>
+ Length of the direction vector <x,y>
+ 
+ X and y of the tangent vector at t.
+ Angle of the tangent vector.
+ Length of the tangent vector.
+
+## Use
+
+ The scope is not implemented yet and may never materialize. Use a scope to add x&y to visualise the shape of the spline.
+
+
+# Rndbezosc
+
+ A morphing random Bezier oscilator.
+
+ Two random four segment 1D Bezier splines are created and morphed. When the morph is finished a new random spline morph target is generated.
+
+## Parameters
+
+ Frequency
+ 
+ Morph steps: Sets how many 'ticks' the morph takes, form 100 to 5000. @44.1 kHz from ca. 2.27 µs (noisy) to  ca. 113 µs (smooth). Defaults @ ca. 45 µs.
+
+## Inputs
+
+ Frequency (V).
+
+## Outputs
+
+ Waveform (V).
+
+
+# Ramp 
 
  Ramp for VCV Rack. Ramps voltage up or down using cosine, linear or exponential interpolation.
 
