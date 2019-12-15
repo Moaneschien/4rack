@@ -1,6 +1,6 @@
 # Moaneschien Modules 4 Rack
 
-All still very Alpha and in separate directories.
+All still very Alpha.
 
 # Bezosc 
 
