@@ -53,7 +53,7 @@ All still very Alpha and in separate directories. Once it stabilised a bit more 
 
  Waveform (V).
 
-![rndbezosc](https://Moaneschien.github.io/modules/images/rndbezosc.png)
+![rndbezosc](https://Moaneschien.github.io/modules/images/rndbezosc_02.png)
 
 # Ramp 
 
@@ -86,3 +86,5 @@ All still very Alpha and in separate directories. Once it stabilised a bit more 
  Andrew Belt for VCV RACK, © 2019, GNU General Public License v3.0
   
  Matt McInerney for Orbitron, © 2009, SIL Open Font License, Version 1.1.
+
+ Impallari for Dancing Script, SIL Open Font License, Version 1.1.
