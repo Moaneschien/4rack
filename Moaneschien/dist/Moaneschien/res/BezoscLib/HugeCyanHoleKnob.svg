@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="19.000362mm"
+   height="19.000389mm"
+   viewBox="0 0 19.000362 19.000389"
+   version="1.1"
+   id="svg111794"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="HugeCyanHoleKnob.svg">
+  <defs
+     id="defs111788" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8.3907155"
+     inkscape:cx="-2.827038"
+     inkscape:cy="35.570094"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="2560"
+     inkscape:window-height="1422"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-grids="true"
+     inkscape:snap-to-guides="true"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="9.500181,9.5001931"
+       orientation="1,0"
+       id="guide814"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="9.5001808,9.5001933"
+       orientation="0,1"
+       id="guide816"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata111791">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-98.209438,-77.425955)">
+    <g
+       id="g819">
+      <path
+         id="path110586"
+         transform="matrix(0.26458333,0,0,0.26458333,98.209438,77.425955)"
+         d="M 27.945312 0.89648438 C 11.946391 4.5197622 0 18.814871 0 35.90625 C 0 55.739582 16.072915 71.8125 35.90625 71.8125 C 55.73437 71.8125 71.8125 55.739582 71.8125 35.90625 C 71.8125 18.815299 59.863202 4.5221599 43.867188 0.8984375 A 8.2142861 8.2142861 0 0 1 44.121094 2.8847656 A 8.2142861 8.2142861 0 0 1 35.90625 11.097656 A 8.2142861 8.2142861 0 0 1 27.691406 2.8847656 A 8.2142861 8.2142861 0 0 1 27.945312 0.89648438 z "
+         style="fill:#2affd5;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.33417325;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="0.59912449"
+         cy="82.078888"
+         cx="107.70962"
+         id="path815"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35299999;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
