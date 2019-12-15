@@ -16,8 +16,20 @@
     {
       "slug": "Ramp",
       "name": "Ramp",
-      "description": "",
-      "tags": []
+      "description": "Voltage ramp, linear, exponential, cosine",
+      "tags": ["voltage ramp"]
+    },
+    {
+      "slug": "Bezosc",
+      "name": "Bezosc",
+      "description": "Bezier oscillator",
+      "tags": ["oscillator"]
+    },
+    {
+      "slug": "rndbezosc",
+      "name": "rndbezosc",
+      "description": "morphing random Bezier oscillator",
+      "tags": ["oscilator"]
     }
   ]
 }

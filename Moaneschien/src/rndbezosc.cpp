@@ -20,6 +20,8 @@ struct Rndbezosc : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
+ 
+
 
 	Rndbezosc() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
@@ -30,19 +32,20 @@ struct Rndbezosc : Module {
   //random::init();
   inline std::array<simd::float_4, 4> genSpline(){
     std::array<simd::float_4, 4> BezierN;
-    //BezierN[0] = simd::rescale(random::uniform(), 0, 1,-2.5, 2.5);    // A  Knot
-    BezierN[0][0] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // A  Knot
-    BezierN[0][1] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // Ab Handle
-    BezierN[0][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // Ba Handle
-    BezierN[0][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // B  Knot
+    BezierN[0][0] = random::uniform();      // A  Knot
+    BezierN[0][1] = random::uniform();      // Ab Handle
+    BezierN[0][2] = random::uniform();      // Ba Handle
+    BezierN[0][3] = random::uniform();      // B  Knot
+    BezierN[0] = simd::rescale(BezierN[0], 0, 1,-2.5, 2.5);    // A  Knot
+    //DEBUG("error: %f, %f, %f, %f",BezierN[0][0],BezierN[0][1],BezierN[0][2],BezierN[0][3]);
     BezierN[1][0] = BezierN[0][3];                                   // B  Knot
     BezierN[1][1] = BezierN[0][3] - (BezierN[0][2] - BezierN[0][3]); // Bc Handle
-    BezierN[1][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // Cb Handle
-    BezierN[1][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // C  Knot
+    BezierN[1][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // Cb Handle
+    BezierN[1][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // C  Knot
     BezierN[2][0] = BezierN[1][3];                                   // C  Knot
     BezierN[2][1] = BezierN[1][3] - (BezierN[1][2] - BezierN[1][3]); // Cd Handle
-    BezierN[2][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // Dc Handle
-    BezierN[2][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);    // D  Knot
+    BezierN[2][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // Dc Handle
+    BezierN[2][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // D  Knot
     BezierN[3][0] = BezierN[2][3];                                   // D  Knot
     BezierN[3][1] = BezierN[2][3] - (BezierN[2][2] - BezierN[2][3]); // Da Handle
     BezierN[3][2] = BezierN[0][0] - (BezierN[0][1] - BezierN[0][0]); // Ad Handle

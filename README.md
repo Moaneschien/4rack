@@ -1,6 +1,6 @@
 # Moaneschien Modules 4 Rack
 
-All still very Alpha and in separate directories. Once it stabilised a bit more It'll be merged into one.
+All still very Alpha and in separate directories.
 
 # Bezosc 
 

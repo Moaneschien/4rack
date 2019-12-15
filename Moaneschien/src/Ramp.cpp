@@ -171,14 +171,14 @@ struct RampWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.0, 106.5)), module, Ramp::START_INPUT + 6));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.0, 118.5)), module, Ramp::START_INPUT + 7));
 
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  38.044)), module, Ramp::START_LIGHT + 0));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  50.044)), module, Ramp::START_LIGHT + 1));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  62.044)), module, Ramp::START_LIGHT + 2));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  74.044)), module, Ramp::START_LIGHT + 3));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  86.044)), module, Ramp::START_LIGHT + 4));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526,  98.044)), module, Ramp::START_LIGHT + 5));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526, 110.044)), module, Ramp::START_LIGHT + 6));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(11.526, 122.044)), module, Ramp::START_LIGHT + 7));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  38.044)), module, Ramp::START_LIGHT + 0));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  50.044)), module, Ramp::START_LIGHT + 1));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  62.044)), module, Ramp::START_LIGHT + 2));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  74.044)), module, Ramp::START_LIGHT + 3));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  86.044)), module, Ramp::START_LIGHT + 4));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526,  98.044)), module, Ramp::START_LIGHT + 5));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526, 110.044)), module, Ramp::START_LIGHT + 6));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(11.526, 122.044)), module, Ramp::START_LIGHT + 7));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.0,  34.5)), module, Ramp::STOP_INPUT + 0));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.0,  46.5)), module, Ramp::STOP_INPUT + 1));
@@ -189,41 +189,41 @@ struct RampWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.0, 106.5)), module, Ramp::STOP_INPUT + 6));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.0, 118.5)), module, Ramp::STOP_INPUT + 7));
 
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  34.5)), module, Ramp::VFROM_PARAM + 0));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  46.5)), module, Ramp::VFROM_PARAM + 1));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  58.5)), module, Ramp::VFROM_PARAM + 2));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  70.5)), module, Ramp::VFROM_PARAM + 3));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  82.5)), module, Ramp::VFROM_PARAM + 4));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0,  94.5)), module, Ramp::VFROM_PARAM + 5));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0, 106.5)), module, Ramp::VFROM_PARAM + 6));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(30.0, 118.5)), module, Ramp::VFROM_PARAM + 7));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  34.5)), module, Ramp::VFROM_PARAM + 0));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  46.5)), module, Ramp::VFROM_PARAM + 1));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  58.5)), module, Ramp::VFROM_PARAM + 2));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  70.5)), module, Ramp::VFROM_PARAM + 3));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  82.5)), module, Ramp::VFROM_PARAM + 4));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0,  94.5)), module, Ramp::VFROM_PARAM + 5));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0, 106.5)), module, Ramp::VFROM_PARAM + 6));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(30.0, 118.5)), module, Ramp::VFROM_PARAM + 7));
 
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  34.5)), module, Ramp::VTO_PARAM + 0));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  46.5)), module, Ramp::VTO_PARAM + 1));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  58.5)), module, Ramp::VTO_PARAM + 2));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  70.5)), module, Ramp::VTO_PARAM + 3));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  82.5)), module, Ramp::VTO_PARAM + 4));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0,  94.5)), module, Ramp::VTO_PARAM + 5));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0, 106.5)), module, Ramp::VTO_PARAM + 6));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(42.0, 118.5)), module, Ramp::VTO_PARAM + 7));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  34.5)), module, Ramp::VTO_PARAM + 0));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  46.5)), module, Ramp::VTO_PARAM + 1));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  58.5)), module, Ramp::VTO_PARAM + 2));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  70.5)), module, Ramp::VTO_PARAM + 3));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  82.5)), module, Ramp::VTO_PARAM + 4));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0,  94.5)), module, Ramp::VTO_PARAM + 5));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0, 106.5)), module, Ramp::VTO_PARAM + 6));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(42.0, 118.5)), module, Ramp::VTO_PARAM + 7));
 
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  34.5)), module, Ramp::TIME_PARAM + 0));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  46.5)), module, Ramp::TIME_PARAM + 1));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  58.5)), module, Ramp::TIME_PARAM + 2));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  70.5)), module, Ramp::TIME_PARAM + 3));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  82.5)), module, Ramp::TIME_PARAM + 4));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0,  94.5)), module, Ramp::TIME_PARAM + 5));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0, 106.5)), module, Ramp::TIME_PARAM + 6));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(54.0, 118.5)), module, Ramp::TIME_PARAM + 7));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  34.5)), module, Ramp::TIME_PARAM + 0));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  46.5)), module, Ramp::TIME_PARAM + 1));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  58.5)), module, Ramp::TIME_PARAM + 2));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  70.5)), module, Ramp::TIME_PARAM + 3));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  82.5)), module, Ramp::TIME_PARAM + 4));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0,  94.5)), module, Ramp::TIME_PARAM + 5));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0, 106.5)), module, Ramp::TIME_PARAM + 6));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(54.0, 118.5)), module, Ramp::TIME_PARAM + 7));
 
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  34.5)), module, Ramp::INTERP_PARAM + 0));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  46.5)), module, Ramp::INTERP_PARAM + 1));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  58.5)), module, Ramp::INTERP_PARAM + 2));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  70.5)), module, Ramp::INTERP_PARAM + 3));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  82.5)), module, Ramp::INTERP_PARAM + 4));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0,  94.5)), module, Ramp::INTERP_PARAM + 5));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0, 106.5)), module, Ramp::INTERP_PARAM + 6));
-		addParam(createParamCentered<HoleKnob>(mm2px(Vec(66.0, 118.5)), module, Ramp::INTERP_PARAM + 7));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  34.5)), module, Ramp::INTERP_PARAM + 0));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  46.5)), module, Ramp::INTERP_PARAM + 1));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  58.5)), module, Ramp::INTERP_PARAM + 2));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  70.5)), module, Ramp::INTERP_PARAM + 3));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  82.5)), module, Ramp::INTERP_PARAM + 4));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0,  94.5)), module, Ramp::INTERP_PARAM + 5));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0, 106.5)), module, Ramp::INTERP_PARAM + 6));
+		addParam(createParamCentered<GreyHoleKnob>(mm2px(Vec(66.0, 118.5)), module, Ramp::INTERP_PARAM + 7));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 	34.5)), module, Ramp::END_OUTPUT + 0));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 	46.5)), module, Ramp::END_OUTPUT + 1));
@@ -234,14 +234,14 @@ struct RampWidget : ModuleWidget {
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 106.5)), module, Ramp::END_OUTPUT + 6));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(78.0, 118.5)), module, Ramp::END_OUTPUT + 7));
 
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  38.044)), module, Ramp::END_LIGHT + 0));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  50.044)), module, Ramp::END_LIGHT + 1));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  62.044)), module, Ramp::END_LIGHT + 2));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  74.044)), module, Ramp::END_LIGHT + 3));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  86.044)), module, Ramp::END_LIGHT + 4));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526,  98.044)), module, Ramp::END_LIGHT + 5));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526, 110.044)), module, Ramp::END_LIGHT + 6));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(81.526, 121.898)), module, Ramp::END_LIGHT + 7));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  38.044)), module, Ramp::END_LIGHT + 0));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  50.044)), module, Ramp::END_LIGHT + 1));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  62.044)), module, Ramp::END_LIGHT + 2));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  74.044)), module, Ramp::END_LIGHT + 3));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  86.044)), module, Ramp::END_LIGHT + 4));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526,  98.044)), module, Ramp::END_LIGHT + 5));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526, 110.044)), module, Ramp::END_LIGHT + 6));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(81.526, 121.898)), module, Ramp::END_LIGHT + 7));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(88.0,  34.5)), module, Ramp::VOUTB_OUTPUT + 0));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(88.0,  46.5)), module, Ramp::VOUTB_OUTPUT + 1));
