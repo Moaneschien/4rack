@@ -1,6 +1,8 @@
 #include "plugin.hpp"
 #include "random.hpp"
 #include "rndbezosccomponent.hpp"
+#include <array>
+
 using simd::float_4;
 
 struct Rndbezosc : Module {
@@ -20,48 +22,42 @@ struct Rndbezosc : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
- 
-
-
-	Rndbezosc() {
-		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-    configParam(PMORPH_PARAM, 100, 5000, 2000, "Morp time");
-		configParam(PFREQ_PARAM, -3.5f, 3.5f, 0.f, "Frequency", "Hz");
-	}
-
-  //random::init();
-  inline std::array<simd::float_4, 4> genSpline(){
-    std::array<simd::float_4, 4> BezierN;
-    BezierN[0][0] = random::uniform();      // A  Knot
-    BezierN[0][1] = random::uniform();      // Ab Handle
-    BezierN[0][2] = random::uniform();      // Ba Handle
-    BezierN[0][3] = random::uniform();      // B  Knot
-    BezierN[0] = simd::rescale(BezierN[0], 0, 1,-2.5, 2.5);    // A  Knot
-    //DEBUG("error: %f, %f, %f, %f",BezierN[0][0],BezierN[0][1],BezierN[0][2],BezierN[0][3]);
-    BezierN[1][0] = BezierN[0][3];                                   // B  Knot
-    BezierN[1][1] = BezierN[0][3] - (BezierN[0][2] - BezierN[0][3]); // Bc Handle
-    BezierN[1][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // Cb Handle
-    BezierN[1][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // C  Knot
-    BezierN[2][0] = BezierN[1][3];                                   // C  Knot
-    BezierN[2][1] = BezierN[1][3] - (BezierN[1][2] - BezierN[1][3]); // Cd Handle
-    BezierN[2][2] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // Dc Handle
-    BezierN[2][3] = rescale(random::uniform(), 0, 1,-2.5, 2.5);      // D  Knot
-    BezierN[3][0] = BezierN[2][3];                                   // D  Knot
-    BezierN[3][1] = BezierN[2][3] - (BezierN[2][2] - BezierN[2][3]); // Da Handle
-    BezierN[3][2] = BezierN[0][0] - (BezierN[0][1] - BezierN[0][0]); // Ad Handle
-    BezierN[3][3] = BezierN[0][0];                                   // A  Knot
-    return BezierN;
-  }
-
-  std::array<simd::float_4, 4> bezierMorph = genSpline();
-  std::array<simd::float_4, 4> bezierTarget;
-  std::array<simd::float_4, 4> morph;
 
   bool morphFlag = false;
   int morphSteps;
   int morphStep = 0;
-	float steps = 0.f;
-	float pitchOld = 0.f;
+  float steps = 0.f;
+  float pitchOld = 0.f;
+  std::array<simd::float_4, 4> bezierMorph = genSpline();
+  std::array<simd::float_4, 4> bezierTarget;
+  std::array<simd::float_4, 4> morph;
+
+  inline std::array<simd::float_4, 4> genSpline(){
+    std::array<simd::float_4, 4> bezier;
+    std::array<float, 8> rndp;
+    for (int i = 0; i < 8; i++){rndp[i] = random::uniform();}
+    bezier[0] = simd::rescale({rndp[0],rndp[1],rndp[2],rndp[3]}, 0, 1,-2.5, 2.5);
+    simd::float_4 tmp = simd::rescale({rndp[4],rndp[5],rndp[6],rndp[7]}, 0, 1,-2.5, 2.5);
+    bezier[1][0] = bezier[0][3];                                 // B  Knot
+    bezier[1][1] = bezier[0][3] - (bezier[0][2] - bezier[0][3]); // Bc Handle
+    bezier[1][2] = tmp[0];                                       // Cb Handle
+    bezier[1][3] = tmp[1];                                       // C  Knot
+    bezier[2][0] = bezier[1][3];                                 // C  Knot
+    bezier[2][1] = bezier[1][3] - (bezier[1][2] - bezier[1][3]); // Cd Handle
+    bezier[2][2] = tmp[3];                                       // Dc Handle
+    bezier[2][3] = tmp[4];                                       // D  Knot
+    bezier[3][0] = bezier[2][3];                                 // D  Knot
+    bezier[3][1] = bezier[2][3] - (bezier[2][2] - bezier[2][3]); // Da Handle
+    bezier[3][2] = bezier[0][0] - (bezier[0][1] - bezier[0][0]); // Ad Handle
+    bezier[3][3] = bezier[0][0];                                 // A  Knot
+    return bezier;
+  }
+
+  Rndbezosc() {
+    config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+    configParam(PMORPH_PARAM, 100, 5000, 2000, "Morp steps");
+    configParam(PFREQ_PARAM, -3.5f, 3.5f, 0.f, "Frequency", "Hz");
+  }
 
 	void process(const ProcessArgs& args) override {
 		if(outputs[OUT_OUTPUT].isConnected()){

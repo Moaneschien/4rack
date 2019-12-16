@@ -1,5 +1,6 @@
 #include "plugin.hpp"
 #include "bezosccomponent.hpp"
+#include <array>
 
 struct Bezosc : Module {
 	enum ParamIds {
@@ -35,6 +36,9 @@ struct Bezosc : Module {
 		NUM_LIGHTS
 	};
 
+  std::array<float, 24> xy;
+  float steps = 0;
+
 	Bezosc() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
     std::array<float, 24> defaults = { //approx. circle r=4
@@ -63,10 +67,6 @@ struct Bezosc : Module {
 		configParam(PBEZFREQ_PARAM,   -3.f, 3.f, 0.f, "frequency");
 	}
  
-
-  std::array<float, 24> xy;
-  float steps = 0;
-
 	void process(const ProcessArgs& args) override {
     bool obez = (  
          outputs[OBEZX_OUTPUT].isConnected()
