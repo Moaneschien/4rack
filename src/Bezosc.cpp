@@ -1,6 +1,7 @@
 #include "plugin.hpp"
 #include "bezosccomponent.hpp"
 #include <array>
+#include <string>
 
 struct Bezosc : Module {
 	enum ParamIds {
