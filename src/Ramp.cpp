@@ -28,6 +28,15 @@ struct Ramp : Module {
 		NUM_LIGHTS
 	};
 
+	float gc[8];
+	bool running[8];
+	bool finished[8];
+	bool stopped[8];
+	bool endPulse[8];
+	dsp::SchmittTrigger startTrigger[8];
+	dsp::SchmittTrigger stopTrigger[8];
+	dsp::PulseGenerator endPulseGen[8];
+
 	/** Interpolates over gs, ge and rescales to ts, te.
 	gc: global current
 	//gs: global start omitted as gs is always 0
@@ -53,22 +62,14 @@ struct Ramp : Module {
 	  return v;
 	}
 
-	float gc[8];
-	bool running[8];
-	bool finished[8];
-	bool stopped[8];
-	bool endPulse[8];
-	dsp::SchmittTrigger startTrigger[8];
-	dsp::SchmittTrigger stopTrigger[8];
-	dsp::PulseGenerator endPulseGen[8];
 
 	Ramp() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUT, NUM_LIGHTS);
 		for (int i = 0; i < 8; i++) {
-			configParam(VFROM_PARAM + i, 0.f, 10.f, 0.f, string::f("Voltage %d from", i + 1));
-			configParam(VTO_PARAM + i, 0.f, 10.f, 0.f, string::f("Voltage %d to", i + 1));
-			configParam(TIME_PARAM + i, 0.f, 1200.f, 0.f, string::f("time %d", i + 1), "s");
-			configParam(INTERP_PARAM + i, 0.f, 10.f, 0.f, string::f("interpolate %d", i + 1));
+			configParam(VFROM_PARAM + i, 0.f, 10.f, 0.f, "Voltage from");
+			configParam(VTO_PARAM + i, 0.f, 10.f, 0.f, "Voltage to");
+			configParam(TIME_PARAM + i, 0.f, 1200.f, 0.f, "time", "s");
+			configParam(INTERP_PARAM + i, 0.f, 10.f, 0.f, "interpolate");
 			gc[i] = 0;
 			running[i] = false;
 			finished[i] = false;
