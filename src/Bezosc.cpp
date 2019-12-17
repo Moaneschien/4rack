@@ -1,7 +1,6 @@
 #include "plugin.hpp"
 #include "bezosccomponent.hpp"
 #include <array>
-#include <string>
 
 struct Bezosc : Module {
 	enum ParamIds {
@@ -37,25 +36,20 @@ struct Bezosc : Module {
 		NUM_LIGHTS
 	};
 
+  const float defaults[24]= { //approx. circle r=4
+    -2.2092f, 4.f,     0.f, 4.f, 2.2092f, 4.f,
+     4.f,     2.2092f, 4.f, 0.f, 4.f,    -2.2092f,
+     2.2092f,-4.f,     0.f,-4.f,-2.2092f,-4.f,
+    -4.f,    -2.2092f,-4.f, 0.f,-4.f,     2.2092f
+  };
+
   std::array<float, 24> xy;
   float steps = 0;
 
 	Bezosc() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-    std::array<float, 24> defaults = { //approx. circle r=4
-      -2.2092f, 4.f,     0.f, 4.f, 2.2092f, 4.f,
-       4.f,     2.2092f, 4.f, 0.f, 4.f,    -2.2092f,
-       2.2092f,-4.f,     0.f,-4.f,-2.2092f,-4.f,
-      -4.f,    -2.2092f,-4.f, 0.f,-4.f,     2.2092f
-    };
-    std::array<std::string, 24> names = {
-      "Adx", "Ady", "Ax", "Ay", "Abx", "Aby",
-      "Bax", "Bay", "Bx", "By", "Bcx", "Bcy",
-      "Cbx", "Cby", "Cx", "Cy", "Cdx", "Cdy",
-      "Dcx", "Dcy", "Dx", "Dy", "Dax", "Day"
-    };
     for (int i = 0; i < 24; i++) {
-		  configParam(PBEZ_PARAM + i, -10.f, 10.f, defaults[i], names[i]);
+		  configParam(PBEZ_PARAM + i, -10.f, 10.f, defaults[i], "Val");
     }
 		configParam(PBEZSCALEX_PARAM,  0.f, 2.f, 1.f, "bezier x");
 		configParam(PBEZSCALEY_PARAM,  0.f, 2.f, 1.f, "bezier y");
