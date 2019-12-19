@@ -199,7 +199,7 @@ struct Bezosc : Module {
       );
 
       float freq = dsp::FREQ_C4 * powf(2.0f, pitch);
-      steps += args.sampleTime * freq * numSegments;  // times 4 as there are 4 segments in the spline.
+      steps += args.sampleTime * freq * numSegments;
       int arrIdx = floor(steps);
       float t = steps - arrIdx;
 
@@ -311,7 +311,7 @@ struct BezoscWidget : ModuleWidget {
     addParam(createParamCentered<PaleHoleKnob>(mm2px(Vec(126.998, 80.31)), module, Bezosc::PTANSCALETH_PARAM));
     addParam(createParamCentered<PaleHoleKnob>(mm2px(Vec(126.998, 89.947)), module, Bezosc::PTANSCALEL_PARAM));
 
-    addParam(createParamCentered<LargeCyanSnapKnob>(mm2px(Vec(111.168, 116.248)), module, Bezosc::MODUS_PARAM));
+    addParam(createParamCentered<SelectorFour>(mm2px(Vec(111.168, 116.248)), module, Bezosc::MODUS_PARAM));
     addParam(createParamCentered<HugeCyanHoleKnob>(mm2px(Vec(131.853, 110.896)), module, Bezosc::PBEZFREQ_PARAM));
 
 		addInput(createInputCentered<PJ301MSPort>(mm2px(Vec( 25.934,  16.068)), module, Bezosc::IBEZ_INPUT +  0));

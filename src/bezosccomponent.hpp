@@ -51,4 +51,14 @@ namespace rack {
     }
   };
 
+  struct SelectorFour : app::SvgSwitch {
+    SelectorFour() {
+      addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/SelectorFour_01.svg")));
+      addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/SelectorFour_02.svg")));
+      addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/SelectorFour_03.svg")));
+      addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/SelectorFour_04.svg")));
+      shadow->opacity = 0.0f; // Hide shadows
+    }
+  };
+
 }
