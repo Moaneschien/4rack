@@ -21,6 +21,14 @@ namespace rack {
       setSvg(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/LargeCyanHoleKnob.svg")));
     }
   };
+  struct LargeCyanSnapKnob : RoundKnob {
+    LargeCyanSnapKnob() {
+      setSvg(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/LargeCyanSnapKnob.svg")));
+      snap = true;
+      smooth = false;
+      //shadow->opacity = 0.0f; // Hide shadows
+    }
+  };
   struct LargePaleHoleKnob : RoundKnob {
     LargePaleHoleKnob() {
       setSvg(APP->window->loadSvg(asset::plugin(pluginInstance,"res/BezoscLib/LargePaleHoleKnob.svg")));
