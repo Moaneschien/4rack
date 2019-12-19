@@ -138,7 +138,8 @@ struct Bezosc : Module {
         Da = Vec(xy[22],xy[23]);
       }
       else if(modus == 2){
-        // Dependent rough mode, handles move along with knots. Handles can be set independent.
+        // Dependent rough mode, handles move along with knots. 
+        // Handles can be set independent.
         Ab = Vec(xy[4], xy[5]).plus(A);
         Ba = Vec(xy[6], xy[7]).plus(B);
         Bc = Vec(xy[10],xy[11]).plus(B);
@@ -156,12 +157,17 @@ struct Bezosc : Module {
         Cd = C.plus(Vec(xy[16],xy[17]));
         Da = D.plus(Vec(xy[22],xy[23]));
         Ba = B.minus((Vec(xy[10],xy[11]).normalize()).mult(xy[6]));
-        Cb = C.minus((Vec(xy[16],xy[17]).normalize()).mult(xy[12]));
-        Dc = D.minus((Vec(xy[22],xy[23]).normalize()).mult(xy[18]));
-        Ad = A.minus((Vec(xy[4], xy[5]).normalize()).mult(xy[0]));
+        Cb = C.minus(Vec(xy[16],xy[17]).normalize()).mult(xy[12]);
+        Dc = D.minus(Vec(xy[22],xy[23]).normalize()).mult(xy[18]);
+        Ad = A.minus(Vec(xy[4], xy[5]).normalize()).mult(xy[0]);
+        params[PBEZ_PARAM +  7].setValue(xy[6]);
+        params[PBEZ_PARAM + 13].setValue(xy[12]);
+        params[PBEZ_PARAM + 19].setValue(xy[18]);
+        params[PBEZ_PARAM +  1].setValue(xy[0]);
       }
       else if(modus == 4){
-      // Smooth, handles move along with knots. One handle can be set independent, the other is equal in opposite direction.
+      // Smooth, handles move along with knots. One handle can be set independent, 
+      // the other is equal in opposite direction.
         Ab = A.plus(Vec(xy[4], xy[5]));
         Bc = B.plus(Vec(xy[10],xy[11]));
         Cd = C.plus(Vec(xy[16],xy[17]));
@@ -170,6 +176,14 @@ struct Bezosc : Module {
         Cb = C.minus(Vec(xy[16],xy[17]));
         Dc = D.minus(Vec(xy[22],xy[23]));
         Ad = A.minus(Vec(xy[4], xy[5]));
+        params[PBEZ_PARAM +  6].setValue(-xy[10]);
+        params[PBEZ_PARAM +  7].setValue(-xy[11]);
+        params[PBEZ_PARAM + 12].setValue(-xy[16]);
+        params[PBEZ_PARAM + 13].setValue(-xy[17]);
+        params[PBEZ_PARAM + 18].setValue(-xy[22]);
+        params[PBEZ_PARAM + 19].setValue(-xy[23]);
+        params[PBEZ_PARAM +  0].setValue(-xy[4]);
+        params[PBEZ_PARAM +  1].setValue(-xy[5]);
       };
       Vec bezier[numSegments][pointsSegment] = {
         {A, Ab, Ba, B},
